@@ -40,6 +40,7 @@
 
 \author{Nemkin Viktória}
 \title{Kvantum gráfbolyongások}
+\subtitle{MSc Önálló laboratórium 1.}
 \date{}
 
 \begin{document}
@@ -52,14 +53,105 @@
   \begin{itemize}
     \item Irányított, élsúlyozott gráf
     \item Csúcsokon lépkedés
-    \item Kimenő élek súlya
+    \item Kimenő élek súlya szerinti véletlen választás
   \end{itemize}
+  \pause
+  \textbf{Kvantum gráfbolyongások}
+  \begin{itemize}
+    \item Véletlen választás: kvantumosan
+    \item Speciális eset: fokszám = 2 $\rightarrow$ érme feldobás
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kvantumérme}
+  \textbf{Kvantumbit}
+  \begin{itemize}
+    \item Lehet $\ket{0}$, $\ket{1}$ vagy $c_0\ket{0} + c_1\ket{1}$
+          \begin{itemize}
+            \item 2 dimenziós vektor: $\begin{pmatrix} c_0 \\ c_1 \end{pmatrix}$
+            \item $\ket{0} = \begin{pmatrix} 1 \\ 0\end{pmatrix}$, $\ket{1} = \begin{pmatrix} 0 \\ 1\end{pmatrix}$
+          \end{itemize}
+          \pause
+    \item Megkötések:
+          \begin{itemize}
+            \item Koordináták komplexek
+            \item Egység hosszú: $|c_0|^2 + |c_1|^2 = 1$
+          \end{itemize}
+          \pause
+    \item Mérés eredménye: $\ket{0}$ vagy $\ket{1}$
+          \begin{itemize}
+            \item $P(\ket{0}) = |c_0|^2$
+            \item $P(\ket{1}) = |c_1|^2$
+          \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kvantumérme}
+
+  \textbf{Hadamard-kapu} (mátrix)
+  \[\begin{pmatrix} c_0' \\ c_1'
+    \end{pmatrix} = \begin{pmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+      \\ \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}\end{pmatrix} \cdot
+    \begin{pmatrix} c_0 \\ c_1 \end{pmatrix}\]
+
+  \pause
+  \textbf{Kvantumérme}\\
+  \begin{itemize}
+    \item Érme $=$ kvantumbit
+    \item Érme feldobása $=$ Hadamard-mátrixszal szorzás
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kvantumérme}
+
+  Kiindulás:
+
+  \[\ket{0} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}\]
+  \pause
+  1. feldobás után:
+
+  \[\begin{pmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+      \\ \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}\end{pmatrix} \cdot
+    \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix}
+      \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}
+    \end{pmatrix} \]
+  \pause
+  $\rightarrow$ Mérés:
+
+  \[P(\ket{0}) = P(\ket{1}) = \left(\frac{1}{\sqrt{2}} \right)^2 = \frac{1}{2}\]
+
 
 \end{frame}
 
 \begin{frame}
   \frametitle{Kvantumérme}
 
+  Majd:
+
+  \[\begin{pmatrix}
+      \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}
+    \end{pmatrix}\]
+  \pause
+  2. feldobás után:
+
+  \[\begin{pmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+      \\ \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}\end{pmatrix} \cdot
+    \begin{pmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{pmatrix} = \begin{pmatrix}
+      1 \\ 0
+    \end{pmatrix} \]
+  \pause
+  $\rightarrow$ Mérés:
+
+  \[P(\ket{0}) = 1, P(\ket{1}) = 0\]
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kvantumérme}
   \begin{center}
     \begin{tikzpicture}[scale=2]
       \coordinate (A) at (0,2);
@@ -84,16 +176,23 @@
         \draw[thin, postaction={decorate}] (B2) -- (C22);
       \end{scope}
       \node at (-0.7,1.65) {$\frac{1}{\sqrt{2}}$};
-      \draw[draw=white, fill=white] (A) circle (0.2) node {$\ket{1}$};
+      \node at (0.7,1.65) {$\frac{1}{\sqrt{2}}$};
+      \node at (-1.43,0.65) {$\frac{1}{\sqrt{2}}$};
+      \node at (-0.6,0.65) {$\frac{1}{\sqrt{2}}$};
+      \node at (0.54,0.65) {$\frac{1}{\sqrt{2}}$};
+      \node at (1.4,0.65) {-$\frac{1}{\sqrt{2}}$};
+      \node at (4,2) {$\ket{0}$};
+      \node at (4,1) {$\frac{1}{\sqrt{2}}\ket{0} + \frac{1}{\sqrt{2}}\ket{1} $};
+      \node at (4,0) {$\frac{1}{2}\ket{0} + \frac{1}{2}\ket{1} + \frac{1}{2}\ket{0} - \frac{1}{2}\ket{1} = \ket{0}$};
+      \draw[draw=white, fill=white] (A) circle (0.2) node {$\ket{0}$};
       \draw[draw=white, fill=white] (B1) circle (0.2) node {$\ket{0}$};
       \draw[draw=white, fill=white] (B2) circle (0.2) node {$\ket{1}$};
       \draw[draw=white, fill=white] (C11) circle (0.2) node {$\ket{0}$};
       \draw[draw=white, fill=white] (C12) circle (0.2) node {$\ket{1}$};
-      \draw[draw=white, fill=white] (C21) circle (0.2) node {$\ket{1}$};
-      \draw[draw=white, fill=white] (C22) circle (0.2) node {$\ket{0}$};
+      \draw[draw=white, fill=white] (C21) circle (0.2) node {$\ket{0}$};
+      \draw[draw=white, fill=white] (C22) circle (0.2) node {$\ket{1}$};
     \end{tikzpicture}
   \end{center}
-
 \end{frame}
 
 \begin{frame}
@@ -126,7 +225,22 @@
 
 
 \begin{frame}
-  \frametitle{Szimuláció: Szakaszon bolyongás}
+  \frametitle{Félévi munka}
+  \begin{itemize}
+    \item Kvantum matematikai alapok megértése (?)
+    \item Gráfbolyongási szimulációs keretrendszer Pythonban
+          \begin{itemize}
+            \item Nevesített részgráfok kompozitjai
+            \item Latex report generálása
+          \end{itemize}
+    \item Klasszikus szimulációk
+    \item Kvantumos szimuláció spec. eset: egyenes
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Bónusz: Szakaszon bolyongás}
 
   \begin{columns}[onlytextwidth]
     \begin{column}{.25\textwidth}
