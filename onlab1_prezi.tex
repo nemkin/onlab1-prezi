@@ -68,7 +68,7 @@
   \frametitle{Kvantumérme}
   \textbf{Kvantumbit}
   \begin{itemize}
-    \item Lehet $\ket{0}$, $\ket{1}$ vagy $c_0\ket{0} + c_1\ket{1}$
+    \item Lehet $\ket{0}$, $\ket{1}$ vagy $c_0\ket{0} + c_1\ket{1}$ (szuperpozíció)
           \begin{itemize}
             \item 2 dimenziós vektor: $\begin{pmatrix} c_0 \\ c_1 \end{pmatrix}$
             \item $\ket{0} = \begin{pmatrix} 1 \\ 0\end{pmatrix}$, $\ket{1} = \begin{pmatrix} 0 \\ 1\end{pmatrix}$
@@ -120,7 +120,7 @@
       \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}
     \end{pmatrix} \]
   \pause
-  $\rightarrow$ Mérés:
+  $\rightarrow$ Ha megmérnénk:
 
   \[P(\ket{0}) = P(\ket{1}) = \left(\frac{1}{\sqrt{2}} \right)^2 = \frac{1}{2}\]
 
@@ -144,7 +144,7 @@
       1 \\ 0
     \end{pmatrix} \]
   \pause
-  $\rightarrow$ Mérés:
+  $\rightarrow$ Ha megmérnénk:
 
   \[P(\ket{0}) = 1, P(\ket{1}) = 0\]
 
@@ -174,7 +174,13 @@
       \draw[->] (-0.1,0.5) -- (-1,0.5) node [above=0.1cm] {$\ket{0}$};
     \end{tikzpicture}
 
+
   \end{center}
+  Érme szuperpozícióban lesz $\rightarrow$ ,,egyszerre'' megyünk mindkét irányba.
+
+  \pause
+  $\rightarrow$ Sok lépés után: mi a pozíció eloszlása?
+
 \end{frame}
 
 \begin{frame}
@@ -183,6 +189,24 @@
     \centering
     \includegraphics[width=0.6\linewidth]{./figures/teve.png}
   \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Félévi munka}
+  \begin{itemize}
+    \item Kvantum matematikai alapok megértése (?)
+    \item Gráfbolyongási szimulációs keretrendszer Pythonban
+          \begin{itemize}
+            \item Kezdetben: Szomszédossági mátrix
+                  \begin{itemize}
+                    \item Nehézségek: memóriaigény, lassú iteráció az ötleteken
+                  \end{itemize}
+            \item Megoldás: Szomszédossági orákulum, Nevesített részgráfok kompozitjai
+            \item Latex report generálása
+          \end{itemize}
+    \item Klasszikus szimulációk
+    \item Kvantumos szimuláció spec. eset: egyenes
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -204,22 +228,6 @@
     \end{column}
   \end{columns}
 \end{frame}
-
-
-\begin{frame}
-  \frametitle{Félévi munka}
-  \begin{itemize}
-    \item Kvantum matematikai alapok megértése (?)
-    \item Gráfbolyongási szimulációs keretrendszer Pythonban
-          \begin{itemize}
-            \item Nevesített részgráfok kompozitjai
-            \item Latex report generálása
-          \end{itemize}
-    \item Klasszikus szimulációk
-    \item Kvantumos szimuláció spec. eset: egyenes
-  \end{itemize}
-\end{frame}
-
 
 \begin{frame}
   \frametitle{Bónusz: Szakaszon bolyongás}
