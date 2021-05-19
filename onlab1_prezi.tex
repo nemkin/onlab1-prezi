@@ -152,47 +152,28 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Kvantumérme}
+  \frametitle{Egyenesen bolyongás}
+
+  \tikzset{axis line style/.style={thin, gray, -stealth}}
+
+  \newcommand*{\TickSize}{2pt}%
+
   \begin{center}
-    \begin{tikzpicture}[scale=2]
-      \coordinate (A) at (0,2);
-      \coordinate (B1) at (-1,1);
-      \coordinate (B2) at (1,1);
-      \coordinate (C11) at (-1.5,0);
-      \coordinate (C12) at (-0.5,0);
-      \coordinate (C21) at (0.5,0);
-      \coordinate (C22) at (1.5,0);
-      \begin{scope}[
-          thin,
-          decoration={
-              markings,
-              mark=at position 0.7 with {\arrow[scale=2]{>}}
-            }
-        ]
-        \draw[thin, postaction={decorate}] (A) -- (B1);
-        \draw[thin, postaction={decorate}] (A) -- (B2);
-        \draw[thin, postaction={decorate}] (B1) -- (C11);
-        \draw[thin, postaction={decorate}] (B1) -- (C12);
-        \draw[thin, postaction={decorate}] (B2) -- (C21);
-        \draw[thin, postaction={decorate}] (B2) -- (C22);
-      \end{scope}
-      \node at (-0.7,1.65) {$\frac{1}{\sqrt{2}}$};
-      \node at (0.7,1.65) {$\frac{1}{\sqrt{2}}$};
-      \node at (-1.43,0.65) {$\frac{1}{\sqrt{2}}$};
-      \node at (-0.6,0.65) {$\frac{1}{\sqrt{2}}$};
-      \node at (0.54,0.65) {$\frac{1}{\sqrt{2}}$};
-      \node at (1.4,0.65) {-$\frac{1}{\sqrt{2}}$};
-      \node at (4,2) {$\ket{0}$};
-      \node at (4,1) {$\frac{1}{\sqrt{2}}\ket{0} + \frac{1}{\sqrt{2}}\ket{1} $};
-      \node at (4,0) {$\frac{1}{2}\ket{0} + \frac{1}{2}\ket{1} + \frac{1}{2}\ket{0} - \frac{1}{2}\ket{1} = \ket{0}$};
-      \draw[draw=white, fill=white] (A) circle (0.2) node {$\ket{0}$};
-      \draw[draw=white, fill=white] (B1) circle (0.2) node {$\ket{0}$};
-      \draw[draw=white, fill=white] (B2) circle (0.2) node {$\ket{1}$};
-      \draw[draw=white, fill=white] (C11) circle (0.2) node {$\ket{0}$};
-      \draw[draw=white, fill=white] (C12) circle (0.2) node {$\ket{1}$};
-      \draw[draw=white, fill=white] (C21) circle (0.2) node {$\ket{0}$};
-      \draw[draw=white, fill=white] (C22) circle (0.2) node {$\ket{1}$};
+    \begin{tikzpicture}
+
+      \draw [axis line style] (-6.5,0) -- (6.5,0);
+
+      \foreach \x in {-6,-5,...,6} {%
+          \draw ($(\x,0) + (0,-\TickSize)$) -- ($(\x,0) + (0,\TickSize)$)
+          node [below=0.1cm] {$\x$};
+        }
+
+      \draw[draw, fill=black] (0,0) circle (0.05);
+
+      \draw[->] (0.1,0.5) -- (1,0.5) node [above=0.1cm] {$\ket{1}$};
+      \draw[->] (-0.1,0.5) -- (-1,0.5) node [above=0.1cm] {$\ket{0}$};
     \end{tikzpicture}
+
   \end{center}
 \end{frame}
 
